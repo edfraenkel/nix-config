@@ -70,17 +70,20 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.extraUsers = {
-    guest = {
-      isNormalUser = true;
-      uid = 1000;
-    };
-    daniel = {
-      isNormalUser = true;
-      uid = 2000;
-      createHome = true;
-      extraGroups = [ "wheel" "networkmanager"];
-      home = "/home/daniel";
+  users = {
+    extraUsers = {
+      guest = {
+        isNormalUser = true;
+        uid = 1000;
+      };
+      daniel = {
+        isNormalUser = true;
+        uid = 2000;
+        createHome = true;
+        extraGroups = [ "wheel" "networkmanager"];
+        home = "/home/daniel";
+        hashedPassword = import ./password_daniel.nix;
+      };
     };
   };
 
