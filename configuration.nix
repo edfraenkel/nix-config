@@ -34,7 +34,7 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    wget git htop curl pstree lsof gawk
+    wget git htop curl pstree lsof gawk ntfs3g nix-repl mkpasswd
   ];
 
   # List services that you want to enable:
@@ -79,19 +79,11 @@
       isNormalUser = true;
       uid = 2000;
       createHome = true;
-      group = "adm";
+      extraGroups = [ "wheel" "networkmanager"];
       home = "/home/daniel";
     };
   };
 
-  # Security
-  security = {
-    sudo.extraConfig = '' 
-      
-      # Add admin users to the sudoers file
-      %adm ALL=(ALL) NOPASSWD: ALL
-   ''; 
-  };
 
   # Programs
   programs = {
