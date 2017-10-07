@@ -67,6 +67,8 @@
     redshift.enable = true;
     redshift.latitude = "53.0";
     redshift.longitude = "6.3";
+    redshift.brightness.night = "0.5";
+    redshift.temperature.night = 3000;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -95,5 +97,8 @@
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "17.03";
+
+  # Automatic update
+  system.autoUpgrade.enable = true;
 
 }
